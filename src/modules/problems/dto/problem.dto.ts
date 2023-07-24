@@ -1,5 +1,5 @@
-import { AgentDTO } from '@/modules/agents/dto/agent.dto';
-import { ObjectType, Field } from '@nestjs/graphql';
+import { AgentDTO } from "@/modules/agents/dto/agent.dto";
+import { ObjectType, Field } from "@nestjs/graphql";
 
 @ObjectType()
 export class ProblemDTO {

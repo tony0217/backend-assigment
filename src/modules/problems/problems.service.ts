@@ -1,17 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model, Types } from 'mongoose';
-import { Problem } from './models/problem.model';
-import { CreateProblemInput } from './dto/inputs/create-problem.input';
-import { UpdateProblemInput } from './dto/inputs/update-problem.input';
-import { StatusDTO } from '@/core/dto/status.dto';
-import { Agent } from '../agents/models/agent.model';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, Types } from "mongoose";
+import { Problem } from "./models/problem.model";
+import { CreateProblemInput } from "./dto/inputs/create-problem.input";
+import { UpdateProblemInput } from "./dto/inputs/update-problem.input";
+import { StatusDTO } from "@/core/dto/status.dto";
+import { Agent } from "../agents/models/agent.model";
 
 @Injectable()
 export class ProblemsService {
   constructor(
     @InjectModel(Agent.name) private readonly agentModel: Model<Agent>,
-    @InjectModel(Problem.name) private readonly problemModel: Model<Problem>,
+    @InjectModel(Problem.name) private readonly problemModel: Model<Problem>
   ) {}
 
   async findById(id: Types.ObjectId): Promise<Problem> {
@@ -72,7 +72,7 @@ export class ProblemsService {
 
     this.problemModel.findByIdAndRemove(_id).exec();
     return {
-      status: 'success',
+      status: "success",
       message: `Problem deleted successfully`,
     };
   }
@@ -99,7 +99,7 @@ export class ProblemsService {
   }
 
   private async releaseAgent(
-    problemId: string | Types.ObjectId,
+    problemId: string | Types.ObjectId
   ): Promise<void> {
     const problem = await this.problemModel.findById(problemId).exec();
     if (problem && problem.assignedTo) {
@@ -146,7 +146,7 @@ export class ProblemsService {
 
   private async notFound(_id: string | Types.ObjectId): Promise<any> {
     return {
-      status: 'Not Found',
+      status: "Not Found",
       message: `Problem with id ${_id} does not exist`,
     };
   }

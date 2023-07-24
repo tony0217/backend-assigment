@@ -1,34 +1,42 @@
-# Backend Coding Challenge
-Code Challenge para candidatos Backend para DocRed.
+<p align="center" style="background: black">
+   <a href="https://www.docred.com/" target="blank"><img src="https://res.cloudinary.com/docred/image/upload/t_thumb,t_optimization/DOCRED_Logo_Redes_Instagram_cf967b9d13.webp" width="200" alt="docred Logo" /></a>
+</p>
 
-**IMPORTANTE**: Haz un *fork* de este repositorio para trabajar en la solución
+# Ejecutar en desarrollo
 
-## Contexto
-El soporte de nuestros usuarios es muy importante en DocRed. Nuestros agentes quieren ser mas eficientes en la resolución de los problemas o consultas que nuestros usuarios puedan tener. Para eso, se decidio construir un software para automatizar el proceso - el software que tu vas a construir.
+1. Clonar el repositorio
+2. Ejecutar
+```
+npm install
+```
+3. Tener Nest CLI instalado
+```
+npm i -g @nestjs/cli
+```
 
-## Tu misión
-Tu tarea es proveer una API para una aplicación frontend que satisfaga los requerimentos descriptos arriba.
-Por favor, sigue los requerimentos del producto.
-No debes implementar autorización o autenticación, ya que no es importante en este challenge.
+4. Clonar el archivo ```.env.example``` y renombar la copia a ```
+.env.dev```
 
-## Requerimientos del producto
-- Los usuarios de Docred pueden reportar un problema.
-- Los problemas nuevos deben asignarse automáticamente, a un agente que esté libre.
-- Cada agente debe trabajar en un problema a la vez.
-- El agente puede marcar un problema como resuelto, de esta manera, el agente queda libre para tomar un nuevo problema.
-- El sistema asignará automáticamente, un nuevo problema a un agente, cuando este se libere.
+5. Llenar las variables de entorno definidas en el ```.env.dev```
 
-## Requerimientos técnicos
-- Node.js
-- Tests (calidad y cobertura).
-- La prueba se debe desarrollar con el framework NestJs.
-- La prueba se debe implementar con graphql.
+6. Ejecutar la aplicación en dev:
+```
+npm run start:dev
+```
 
-## Instrucciones
-- The challenge is on!
-- Haz un fork de este repositorio
-- Construye una solucion bien estructurada, limpia y facil de leer. Performance tambien es importante.
-- Haz commit pronto y seguido. Queremos ser capazes de seguir tu progreso.
-- Provee un README explicando como correr tu solucion *paso a paso*.
-- Envianos un email con el link a tu repositorio cuando termines el challenge.
-- El projecto debe ser "auto-suficiente". Es decir, Si usa una base de datos, la solución debe proveer una.
+## Stack usado
+* NodeJS
+* MongoDB
+* NestJS
+* GraphQL
+
+# Production Build
+1. Crear el archivo ```.env.prod```
+2. Llenar las variables de entorno de prod
+
+
+# Notas
+Mirar Querys:
+```
+cargar el archivo backend-assigment.postman_collection.json en postman 
+```

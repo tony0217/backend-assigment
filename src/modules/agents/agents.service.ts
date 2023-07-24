@@ -1,15 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAgentInput } from './dto/inputs/create-agent.input';
-import { UpdateAgentInput } from './dto/inputs/update-agent.input';
-import { Model, Types } from 'mongoose';
-import { Agent } from './models/agent.model';
-import { InjectModel } from '@nestjs/mongoose';
-import { StatusDTO } from '@/core/dto/status.dto';
+import { Injectable } from "@nestjs/common";
+import { CreateAgentInput } from "./dto/inputs/create-agent.input";
+import { UpdateAgentInput } from "./dto/inputs/update-agent.input";
+import { Model, Types } from "mongoose";
+import { Agent } from "./models/agent.model";
+import { InjectModel } from "@nestjs/mongoose";
+import { StatusDTO } from "@/core/dto/status.dto";
 
 @Injectable()
 export class AgentsService {
   constructor(
-    @InjectModel(Agent.name) private readonly agentModel: Model<Agent>,
+    @InjectModel(Agent.name) private readonly agentModel: Model<Agent>
   ) {}
 
   async create(createAgentInput: CreateAgentInput): Promise<Agent> {
@@ -48,14 +48,14 @@ export class AgentsService {
     }
     this.agentModel.findByIdAndRemove(_id).exec();
     return {
-      status: 'success',
+      status: "success",
       message: `Agent deleted successfully`,
     };
   }
 
   private async notFound(_id: string | Types.ObjectId): Promise<any> {
     return {
-      status: 'Not Found',
+      status: "Not Found",
       message: `Agent with id ${_id} does not exist`,
     };
   }

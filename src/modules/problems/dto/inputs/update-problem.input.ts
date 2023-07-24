@@ -1,6 +1,6 @@
-import { CreateProblemInput } from './create-problem.input';
-import { InputType, Field, PartialType } from '@nestjs/graphql';
-import { IsMongoId, IsNotEmpty } from 'class-validator';
+import { CreateProblemInput } from "./create-problem.input";
+import { InputType, Field, PartialType } from "@nestjs/graphql";
+import { IsMongoId, IsNotEmpty } from "class-validator";
 
 @InputType()
 export class UpdateProblemInput extends PartialType(CreateProblemInput) {
