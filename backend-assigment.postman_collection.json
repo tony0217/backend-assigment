@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "710376da-1e76-4759-95f3-7f58ac6653ff",
+		"name": "backend-assigment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8252985"
+	},
+	"item": [
+		{
+			"name": "problem",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateProblem($createProblemInput: CreateProblemInput!) {\r\n  createProblem(createProblemInput: $createProblemInput) {\r\n    title\r\n    description\r\n    isResolved\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"createProblemInput\": {\r\n    \"title\": \"Problema 1\",\r\n    \"description\": \"Se necesita validaciones adicionales\",\r\n    \"isResolved\": false\r\n  }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateProblem($updateProblemInput: UpdateProblemInput!) {\r\n  updateProblem(updateProblemInput: $updateProblemInput) {\r\n    _id\r\n    title\r\n    description\r\n    isResolved\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"updateProblemInput\": {\r\n    \"_id\": \"64bdf812836adb5f4cc3e556\",\r\n        \"isResolved\": true\r\n  }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetProblem($problemId: String!) {\r\n  problem(id: $problemId) {\r\n    _id\r\n    description\r\n    isResolved\r\n    title\r\n    assignedTo{\r\n        _id\r\n    }\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"problemId\":\"64bdf62b67a008536c61e71f\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetProblems{\r\n  problems {\r\n    _id\r\n    description\r\n    isResolved\r\n    title\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation removeProblem($id: String!) {\r\n  removeProblem(id: $id) {\r\n    message\r\n    status\r\n  }\r\n}",
+								"variables": "{\r\n  \"id\": \"64bd7b4ded02be283b3464ac\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agent",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation CreateAgent($createAgentInput: CreateAgentInput!) {\r\n  createAgent(createAgentInput: $createAgentInput) {\r\n    name\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"createAgentInput\": {\r\n    \"name\": \"Agent 1\"\r\n  }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation UpdateAgent($updateAgentInput: UpdateAgentInput!) {\r\n  updateAgent(updateAgentInput: $updateAgentInput) {\r\n    _id\r\n    name\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"updateAgentInput\": {\r\n    \"_id\": \"64bdd8978404302cb8796646\",\r\n    \"name\": \"tony\"\r\n  }\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetAgent($agentId: String!) {\r\n  agent(id: $agentId) {\r\n    _id\r\n    name\r\n  }\r\n}\r\n",
+								"variables": "{\r\n  \"agentId\":\"64bdd8978404302cb8796646\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query GetAgents{\r\n  agents {\r\n    _id\r\n    name\r\n    assignedProblem{\r\n      _id\r\n    }\r\n  }\r\n}\r\n",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation removeAgent($id: String!) {\r\n  removeAgent(id: $id) {\r\n    message\r\n    status\r\n  }\r\n}",
+								"variables": "{\r\n  \"id\": \"64bd7b4ded02be283b3464ac\"\r\n}"
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/graphql",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

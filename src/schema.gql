@@ -1,0 +1,74 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AgentDTO {
+  _id: String!
+  assignedProblem: ProblemDTO
+  name: String!
+}
+
+input CreateAgentInput {
+  """Its name of agent"""
+  name: String!
+}
+
+input CreateProblemInput {
+  """Its a description"""
+  description: String!
+
+  """Its status of problems"""
+  isResolved: Boolean!
+
+  """Its a title"""
+  title: String!
+}
+
+type Mutation {
+  createAgent(createAgentInput: CreateAgentInput!): AgentDTO!
+  createProblem(createProblemInput: CreateProblemInput!): ProblemDTO!
+  removeAgent(id: String!): StatusDTO!
+  removeProblem(id: String!): StatusDTO!
+  updateAgent(updateAgentInput: UpdateAgentInput!): AgentDTO!
+  updateProblem(updateProblemInput: UpdateProblemInput!): ProblemDTO!
+}
+
+type ProblemDTO {
+  _id: String!
+  assignedTo: AgentDTO
+  description: String!
+  isResolved: Boolean!
+  title: String!
+}
+
+type Query {
+  agent(id: String!): AgentDTO!
+  agents: [AgentDTO!]!
+  problem(id: String!): ProblemDTO!
+  problems: [ProblemDTO!]!
+}
+
+type StatusDTO {
+  message: String!
+  status: String!
+}
+
+input UpdateAgentInput {
+  _id: String!
+
+  """Its name of agent"""
+  name: String
+}
+
+input UpdateProblemInput {
+  _id: String!
+
+  """Its a description"""
+  description: String
+
+  """Its status of problems"""
+  isResolved: Boolean
+
+  """Its a title"""
+  title: String
+}
